@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Programs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="updateProgramsForm" (ngSubmit)="updateForm()">
+      <ion-item>
+        <ion-label position="floating">Megnevezés</ion-label>
+        <ion-input formControlName="megnevezes" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Leírás</ion-label>
+        <ion-input formControlName="leiras" type="text" required>
+
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Kezdő dátum</ion-label>
+        <ion-input formControlName="kezdo_datum" type="date" required>
+
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Befejező dátum</ion-label>
+        <ion-input formControlName="befejezo_datum" type="date" required>
+
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Találkozó helye</ion-label>
+        <ion-input formControlName="helyszin" type="text" required>
+
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="email" required>
+
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefonszám</ion-label>
+        <ion-input formControlName="mobil" type="tel" required>
+
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Napok száma</ion-label>
+        <ion-input formControlName="napok_szama" type="text" required>
+
+        </ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Program frissitése</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>
