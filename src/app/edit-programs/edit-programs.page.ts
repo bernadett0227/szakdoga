@@ -25,7 +25,7 @@ export class EditProgramsPage implements OnInit {
 
   ngOnInit() {
     this.updateProgramsForm = this.fb.group({
-      megnevezes: ['booking.megnevezes'],
+      megnevezes: [''],
       leiras: [''],
       kezdo_datum: [''],
       befejezo_datum: [''],

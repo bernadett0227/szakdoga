@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Platform} from "@ionic/angular";
 import {SplashScreen} from '@ionic-native/splash-screen/ngx'
 import {StatusBar} from '@ionic-native/status-bar/ngx'
-import firebase from "firebase";
 
 
 @Component({
@@ -15,7 +14,7 @@ export class AppComponent {
     { title: 'Kezdőlap', url: '/home', icon: 'home' },
     { title: 'Regisztráció', url: '/registration'},
     { title: 'Üzenetek', url: '/chat', icon: 'mail' },
-    { title: 'Fórum', url: '/forum', icon: 'paper-plane' },
+    { title: 'Fórum', url: '/list-forums', icon: 'paper-plane' },
     { title: 'Programok', url: '/list-programs', icon: 'calendar-number' },
     { title: 'Értékelések', url: '/reviews', icon: 'star-half' },
     { title: 'Hírek', url: '/news', icon: 'newspaper' },
@@ -37,10 +36,6 @@ export class AppComponent {
 
     });
   }
-  /*public currentUserEmail(){
-    let user = firebase.auth().currentUser;
-    return user.email;
-  }*/
 }
 
 

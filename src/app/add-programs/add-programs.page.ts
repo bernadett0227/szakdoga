@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from "@angular/forms";
-import { ProgramsService } from '../shared/programs.service';
-import firebase from "firebase";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {ProgramsService} from '../shared/programs.service';
 
 @Component({
   selector: 'app-add-programs',

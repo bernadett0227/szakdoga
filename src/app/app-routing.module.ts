@@ -1,15 +1,10 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo} from "@angular/fire/auth-guard";
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
 
-  {
-    path: 'forum',
-    loadChildren: () => import('./forum/forum.module').then( m => m.ForumPageModule)
-  },
   {
     path: 'news',
     loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
@@ -48,6 +43,17 @@ const routes: Routes = [
     path: 'email-verify',
     loadChildren: () => import('./email-verify/email-verify.module').then( m => m.EmailVerifyPageModule)
   },
+  {
+    path: 'add-forums',
+    loadChildren: () => import('./add-forums/add-forums.module').then( m => m.AddForumsPageModule)
+  },
+  {
+    path: 'list-forums',
+    loadChildren: () => import('./list-forums/list-forums.module').then( m => m.ListForumsPageModule)
+  },
+
+
+
 
 
 
