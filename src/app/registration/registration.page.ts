@@ -20,7 +20,7 @@ export class RegistrationPage implements OnInit {
   signUp(email, password){
     this.authService.RegisterUser(email.value, password.value)
       .then((res) => {
-        // Do something here
+        this.router.navigate(['home']);
       }).catch((error) => {
       window.alert(error.message)
     })

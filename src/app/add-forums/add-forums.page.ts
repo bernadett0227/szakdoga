@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ForumService} from '../shared/forum.service';
+import firebase from "firebase";
 
 @Component({
   selector: 'app-add-forums',
@@ -17,10 +18,13 @@ export class AddForumsPage implements OnInit {
               public fb: FormBuilder) { }
 
   ngOnInit() {
+    let user = firebase.auth().currentUser;
+    let date = new Date().toLocaleDateString();
+    console.log(date);
     this.forumForm = this.fb.group({
-      date: [''],
+      date: [date],
       desc: [''],
-      username: [''],
+      username: [user.email],
     });
   }
 

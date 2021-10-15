@@ -12,7 +12,6 @@ import {StatusBar} from '@ionic-native/status-bar/ngx'
 export class AppComponent {
   public appPages = [
     { title: 'Kezdőlap', url: '/home', icon: 'home' },
-    { title: 'Regisztráció', url: '/registration'},
     { title: 'Üzenetek', url: '/chat', icon: 'mail' },
     { title: 'Fórum', url: '/list-forums', icon: 'paper-plane' },
     { title: 'Programok', url: '/list-programs', icon: 'calendar-number' },

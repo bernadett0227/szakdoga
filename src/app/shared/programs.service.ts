@@ -25,7 +25,7 @@ export class ProgramsService {
       helyszin: apt.helyszin,
       email: user.email,
       mobil: apt.mobil,
-      napok_szama: apt.napok_szama,
+      napok_szama: apt.befejezo_datum.valueOf() - apt.kezdo_datum.valueOf(),
     })
   }
 

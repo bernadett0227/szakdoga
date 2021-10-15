@@ -41,35 +41,13 @@ export class AuthenticationService {
     return this.ngFireAuth.createUserWithEmailAndPassword(email, password)
   }
 
-  // Email verification when new user register
-  SendVerificationMail() {
-    return this.ngFireAuth.currentUser.then(u => u.sendEmailVerification())
-      .then(() => {
-        this.router.navigate(['verify-email']);
-      })
-  }
-
-  // Recover password
-  PasswordRecover(passwordResetEmail) {
-    return this.ngFireAuth.sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert('Password reset email has been sent, please check your inbox.');
-      }).catch((error) => {
-        window.alert(error)
-      })
-  }
 
   // Returns true when user is looged in
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    return (user !== null);
   }
 
-  // Returns true when user's email is verified
-  get isEmailVerified(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user.emailVerified !== false) ? true : false;
-  }
 
 
 
@@ -108,7 +86,7 @@ export class AuthenticationService {
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.router.navigate(['home']);
     })
   }
 

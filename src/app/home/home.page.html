@@ -7,7 +7,16 @@
 </ion-header>
 
 <ion-content>
-  <div style="text-align: center; margin: auto;">
-    <ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
+  <div class="text">
+  <h1>Köszöntelek az oldalamon.</h1>
+  <h4>Ez az oldal szakdolgozat projekt céljából jött létre. Ha többet szeretnél megtudni rólam akkor <a routerLink="/about">katt ide</a>
+    Számomra fontos volt hogy egy szépen átgondolt stílusos program szervező oldalt hozzak létre.
+    Kérlek ahhoz hogy minden funkciót jól tudj használni lépj be az oldalamra vagy regisztrálj. Köszönöm
+  </h4>
+  </div>
+  <div class="button">
+    <ion-button type="submit" *ngIf="!authService.isLoggedIn" routerLink="/login" expand="block">Bejelentkezés</ion-button>
+    <ion-button type="submit" *ngIf="authService.isLoggedIn" (click)="authService.SignOut()" >Kijelentkezés</ion-button>
+    <ion-button type="submit" *ngIf="!authService.isLoggedIn" routerLink="/registration" expand="block">Regisztráció</ion-button>
   </div>
 </ion-content>
