@@ -24,6 +24,7 @@ export class EditProgramsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getProgramsData(this.id);
     this.updateProgramsForm = this.fb.group({
       megnevezes: [''],
       leiras: [''],
@@ -37,6 +38,22 @@ export class EditProgramsPage implements OnInit {
     console.log(this.updateProgramsForm.value)
 
   }
+
+  getProgramsData(id) {
+    this.aptService.getBooking(id).valueChanges().subscribe(res => {
+      this.updateProgramsForm.setValue({
+        megnevezes: res['megnevezes'],
+        leiras: res['leiras'],
+        kezdo_datum: res['kezdo_datum'],
+        befejezo_datum: res['befejezo_datum'],
+        helyszin: res['helyszin'],
+        email: res['email'],
+        mobil: res['mobil'],
+        napok_szama: res['napok_szama'],
+      });
+    });
+  }
+
   updateForm() {
     this.aptService.updateBooking(this.id, this.updateProgramsForm.value)
       .then(() => {

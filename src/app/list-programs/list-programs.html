@@ -9,26 +9,15 @@
 
 <ion-grid>
   <ion-searchbar [(ngModel)]="search"></ion-searchbar>
-  <ion-row class="row-header">
-    <ion-col class="col">Megnevezés</ion-col>
-    <ion-col class="col">Leírás</ion-col>
-    <ion-col class="col">Kezdő dátum</ion-col>
-    <ion-col class="col">Befejező dátum</ion-col>
-    <ion-col class="col"> Napok száma</ion-col>
-    <ion-col class="col"> Helyszín</ion-col>
-    <ion-col class="col"> Email</ion-col>
-    <ion-col class="col"> Mobil</ion-col>
-    <ion-col class="col">Aktivitás</ion-col>
-  </ion-row>
-  <ion-row class="row" *ngFor="let booking of Bookings | filter:search">
-    <ion-col class="col">{{booking.megnevezes}}</ion-col>
-    <ion-col class="col">{{booking.leiras}}</ion-col>
-    <ion-col class="col">{{booking.kezdo_datum}}</ion-col>
-    <ion-col class="col">{{booking.befejezo_datum}}</ion-col>
-    <ion-col class="col">{{booking.napok_szama}}</ion-col>
-    <ion-col class="col">{{booking.helyszin}}</ion-col>
-    <ion-col class="col">{{booking.email}}</ion-col>
-    <ion-col class="col">{{booking.mobil}}</ion-col>
+
+  <ion-card *ngFor="let booking of Bookings | filter:search">
+    <ion-card-header>
+      <ion-card-subtitle> Felhasználó: {{booking.email}}</ion-card-subtitle>
+      <ion-card-title> Megnevezés: {{booking.megnevezes}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> Leírás:
+      {{booking.leiras}}
+    </ion-card-content>
     <div class="item-note" item-end>
       <button ion-button clear [routerLink]="['/edit-programs/', booking.$key]">
         <ion-icon name="create" style="zoom:2.0"></ion-icon>
@@ -37,7 +26,7 @@
         <ion-icon name="trash" style="zoom:2.0"></ion-icon>
       </button>
     </div>
-  </ion-row>
+  </ion-card>
 </ion-grid>
 
 

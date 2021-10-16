@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import {Programs} from "./Programs";
 import firebase from "firebase";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class ProgramsService {
       helyszin: apt.helyszin,
       email: user.email,
       mobil: apt.mobil,
-      napok_szama: apt.befejezo_datum.valueOf() - apt.kezdo_datum.valueOf(),
+      napok_szama: apt.napok_szama,
     })
   }
 

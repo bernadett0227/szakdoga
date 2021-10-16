@@ -40,10 +40,6 @@ const routes: Routes = [
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
-    path: 'email-verify',
-    loadChildren: () => import('./email-verify/email-verify.module').then( m => m.EmailVerifyPageModule)
-  },
-  {
     path: 'add-forums',
     loadChildren: () => import('./add-forums/add-forums.module').then( m => m.AddForumsPageModule)
   },
