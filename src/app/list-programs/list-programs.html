@@ -25,6 +25,10 @@
       <button ion-button clear (click)="deleteBooking(booking.$key)">
         <ion-icon name="trash" style="zoom:2.0"></ion-icon>
       </button>
+
+      <button ion-button clear [routerLink]="['/item-program/', booking.$key]">
+        <ion-icon name="information" style="zoom:2.0"></ion-icon>
+      </button>
     </div>
   </ion-card>
 </ion-grid>

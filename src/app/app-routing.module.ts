@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'list-forums',
     loadChildren: () => import('./list-forums/list-forums.module').then( m => m.ListForumsPageModule)
   },
+  {
+    path: 'item-program/:id',
+    loadChildren: () => import('./item-program/item-program.module').then( m => m.ItemProgramPageModule)
+  },
 
 
 
