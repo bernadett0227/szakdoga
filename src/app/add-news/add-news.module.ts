@@ -4,9 +4,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegistrationPageRoutingModule } from './registration-routing.module';
+import { AddNewsPageRoutingModule } from './add-news-routing.module';
 
-import { RegistrationPage } from './registration.page';
+import { AddNewsPage } from './add-news.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { RegistrationPage } from './registration.page';
     FormsModule,
     CommonModule,
     IonicModule,
-    RegistrationPageRoutingModule
+    AddNewsPageRoutingModule
   ],
-  declarations: [RegistrationPage]
+  declarations: [AddNewsPage]
 })
-export class RegistrationPageModule {}
+export class AddNewsPageModule {}

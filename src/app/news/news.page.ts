@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ForumService} from "../shared/forum.service";
+import {Forum} from "../shared/forum";
+import {NewsService} from "../shared/news.service";
+import {News} from "../shared/news";
 
 @Component({
   selector: 'app-news',
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsPage implements OnInit {
 
-  constructor() { }
+  News = [];
 
-  ngOnInit() {
+  constructor(private aptService: NewsService) {
   }
 
+  ngOnInit() {
+    this.fetchNews();
+    let newsRes = this.aptService.getNewsList();
+    newsRes.snapshotChanges().subscribe(res => {
+      this.News = [];
+      res.forEach(item => {
+        let a = item.payload.toJSON();
+        a['$key'] = item.key;
+        this.News.push(a as News);
+      })
+    })
+  }
+
+  fetchNews() {
+    this.aptService.getNewsList().valueChanges().subscribe(res => {
+      console.log(res)
+    })
+  }
+
+  getNews(id) {
+    console.log(id);
+    this.aptService.getNews(id)
+
+  }
 }

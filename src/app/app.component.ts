@@ -13,11 +13,11 @@ export class AppComponent {
   public appPages = [
     { title: 'Kezdőlap', url: '/home', icon: 'home' },
     { title: 'Üzenetek', url: '/chat', icon: 'mail' },
+    { title: 'Felhasználók', url: '/list-user', icon: 'heart' },
     { title: 'Fórum', url: '/list-forums', icon: 'paper-plane' },
     { title: 'Programok', url: '/list-programs', icon: 'calendar-number' },
-    { title: 'Értékelések', url: '/reviews', icon: 'star-half' },
     { title: 'Hírek', url: '/news', icon: 'newspaper' },
-    { title: 'Rólunk', url: '/about', icon: 'flower' },
+    { title: 'Rólam', url: '/about', icon: 'flower' },
   ];
 
   constructor(

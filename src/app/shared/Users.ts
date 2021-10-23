@@ -6,5 +6,4 @@ export class Users {
   password: string;
   birthdate: number;
   gender: string;
-  emailVerified: boolean;
 }

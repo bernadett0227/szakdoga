@@ -8,15 +8,38 @@
 </ion-header>
 
 <ion-content class="form">
-  <form>
+  <form [formGroup]="userForm" (ngSubmit)="formSubmit()">
+    <ion-item lines="full">
+      <ion-label position="floating">Vezetéknév</ion-label>
+      <ion-input formControlName="lastname" type="text"  required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Keresztnév</ion-label>
+      <ion-input formControlName="firstname" type="text"  required></ion-input>
+    </ion-item>
+
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" #email required></ion-input>
+      <ion-input formControlName="email" type="text" #email required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Születési dátum</ion-label>
+      <ion-input formControlName="birthdate" type="date" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nem</ion-label>
+      <ion-select formControlName="gender">
+        <ion-select-option>Nő</ion-select-option>
+        <ion-select-option>Férfi</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" #password required></ion-input>
+      <ion-input formControlName="password" type="password" #password required></ion-input>
     </ion-item>
 
     <ion-row>

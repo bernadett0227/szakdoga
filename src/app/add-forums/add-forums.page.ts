@@ -36,7 +36,7 @@ export class AddForumsPage implements OnInit {
       this.aptService.createForum(this.forumForm.value).then(res => {
         console.log(res);
         this.forumForm.reset();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/list-forums']);
       })
         .catch(error => console.log(error));
     }

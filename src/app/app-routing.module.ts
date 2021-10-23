@@ -51,6 +51,14 @@ const routes: Routes = [
     path: 'item-program/:id',
     loadChildren: () => import('./item-program/item-program.module').then( m => m.ItemProgramPageModule)
   },
+  {
+    path: 'add-news',
+    loadChildren: () => import('./add-news/add-news.module').then( m => m.AddNewsPageModule)
+  },
+  {
+    path: 'list-user',
+    loadChildren: () => import('./list-user/list-user.module').then( m => m.ListUserPageModule)
+  },
 
 
 

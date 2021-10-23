@@ -1,25 +1,27 @@
-<ion-header translucent>
+<ion-header class="bar-stable">
   <ion-toolbar>
-    <ion-title>Hírek</ion-title>
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/add-news"  tab="add-news">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>Új hír</ion-label>
+    </ion-tab-button>
   </ion-toolbar>
 </ion-header>
+
 <ion-content fullscreen>
-  <ion-card href="https://kutyabarathelyek.hu/hu/hirek/reszletek/ebzarlat-2021-oszen-ezek-a-telepulesek-erintettek/">
+  <ion-card *ngFor="let news of News" [href]="news.url" target="_blank">
     <ion-card-header>
-      <ion-card-subtitle>2021.10.09 18:32</ion-card-subtitle>
-      <ion-card-title>Ebzárlat</ion-card-title>
+      <ion-card-subtitle>{{news.date}}</ion-card-subtitle>
+      <ion-card-title>{{news.title}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Jelenleg ebzárlati tilalom van
+      {{news.desc}}
+      <ion-card-title><a href="{{news.url}}"></a></ion-card-title>
     </ion-card-content>
+    <ion-card-subtitle>{{news.user}}</ion-card-subtitle>
+
   </ion-card>
-  <ion-card href="https://www.mozgasvilag.hu/turazas/hirek/turisztikai-jelzesrendszer-szlovakiaban">
-    <ion-card-header>
-      <ion-card-subtitle>2021.10.09 18:32</ion-card-subtitle>
-      <ion-card-title>Túrisztikai jelzésrendszer Szlováliában</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-     "Kresz lámpák" mutatják a turista ösvények, helyek zsúfoltságát
-    </ion-card-content>
-  </ion-card>
+
 </ion-content>
+
+
+
