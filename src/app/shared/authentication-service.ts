@@ -75,6 +75,7 @@ export class AuthenticationService {
       birthdate: user.birthdate,
       email: user.email,
       password: user.password,
+      id: user.id
     };
     return userRef.set(userData, {
       merge: true

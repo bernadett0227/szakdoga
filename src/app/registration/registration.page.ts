@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { AuthenticationService } from "../shared/authentication-service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../shared/user.service";
@@ -16,8 +16,10 @@ export class RegistrationPage implements OnInit {
     public authService: AuthenticationService,
     public aptService: UserService,
     public router: Router,
-    public fb: FormBuilder
-  ) { }
+    public fb: FormBuilder,
+    public actRoute: ActivatedRoute
+  ) {
+  }
 
   userForm: FormGroup;
 

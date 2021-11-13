@@ -3,19 +3,17 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
-import { LoginPageRoutingModule } from './login-routing.module';
-
-import { LoginPage } from './login.page';
+import { ItemForumPageRoutingModule } from './item-forum-routing.module';
+import { ItemForumPage } from './item-forum.page';
 
 @NgModule({
   imports: [
     ReactiveFormsModule,
-    CommonModule,
     FormsModule,
+    CommonModule,
     IonicModule,
-    LoginPageRoutingModule
+    ItemForumPageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [ItemForumPage]
 })
-export class LoginPageModule {}
+export class ItemForumPageModule {}

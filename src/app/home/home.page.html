@@ -1,22 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Szervezz.Utazz.Élj
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div class="text">
+  <ion-text class="text">
   <h1>Köszöntelek az oldalamon.</h1>
   <h4>Ez az oldal szakdolgozat projekt céljából jött létre. Ha többet szeretnél megtudni rólam akkor <a routerLink="/about">katt ide</a>
     Számomra fontos volt hogy egy szépen átgondolt stílusos program szervező oldalt hozzak létre.
     Kérlek ahhoz hogy minden funkciót jól tudj használni lépj be az oldalamra vagy regisztrálj. Köszönöm
   </h4>
-  </div>
+  </ion-text>
   <div class="button">
-    <ion-button type="submit" *ngIf="!authService.isLoggedIn" routerLink="/login" expand="block">Bejelentkezés</ion-button>
-    <ion-button type="submit" *ngIf="authService.isLoggedIn" (click)="authService.SignOut()" >Kijelentkezés</ion-button>
-    <ion-button type="submit" *ngIf="!authService.isLoggedIn" routerLink="/registration" expand="block">Regisztráció</ion-button>
+    <ion-button class="login" type="submit" *ngIf="!authService.isLoggedIn" routerLink="/login" expand="block">Bejelentkezés</ion-button>
+    <ion-button class="signOut" type="submit" *ngIf="authService.isLoggedIn" (click)="authService.SignOut()" >Kijelentkezés</ion-button>
+    <ion-button class="registration" type="submit" *ngIf="!authService.isLoggedIn" routerLink="/registration" expand="block">Regisztráció</ion-button>
   </div>
 </ion-content>

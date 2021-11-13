@@ -6,4 +6,5 @@ export class Users {
   password: string;
   birthdate: number;
   gender: string;
+  id: string;
 }

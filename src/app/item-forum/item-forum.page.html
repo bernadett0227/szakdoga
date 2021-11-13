@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+      <ion-title>Fórum hozzászólás</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card class="table">
+    <ion-col class="col1">
+      <ion-row class="row1">Fórum neve</ion-row>
+      <ion-row class="row1">Fórum leírása</ion-row>
+      <ion-row class="row1">Email</ion-row>
+      <ion-row class="row1">Dátum </ion-row>
+    </ion-col>
+
+    <ion-col class="co2">
+      <ion-row class="row2">{{forumTitle}}</ion-row>
+      <ion-row class="row2">{{forumDesc}}</ion-row>
+      <ion-row class="row2">{{forumUsername}}</ion-row>
+      <ion-row class="row2">{{forumDate}}</ion-row>
+    </ion-col>
+  </ion-card>
+  <h1>Hozzászólások:</h1>
+
+  <ion-card *ngFor="let comment of Comment">
+    <ion-card *ngIf="comment.id === id">
+
+      <ion-card-title>{{comment.comment}}</ion-card-title>
+
+      <ion-card-content>{{comment.user}}</ion-card-content>
+
+      <ion-card-subtitle>{{comment.date}}</ion-card-subtitle>
+    </ion-card>
+  </ion-card>
+
+
+  <form [formGroup]="commentForm" (ngSubmit)="formSubmit()">
+    <ion-item class="comment">
+      <ion-label position="floating">Új Hozzászólás</ion-label>
+      <ion-textarea formControlName="comment"  rows="10" style="border: 1px solid black; border-radius: 10px"></ion-textarea>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" shape="full" expand="block">Mentés</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+
+
+</ion-content>

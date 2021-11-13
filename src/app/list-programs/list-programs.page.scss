@@ -17,3 +17,21 @@ ion-row{
 .row-header{
   text-align: center;
 }
+
+.subcard{
+  width: 300px;
+  display: inline-block;
+  height: 160px;
+}
+.card{
+  display: inherit;
+  max-width: 1000px;
+  height: 600px;
+}
+button{
+  margin-top: 49px;
+}
+.newbutton{
+  width: 50px;
+  display: table-cell;
+}

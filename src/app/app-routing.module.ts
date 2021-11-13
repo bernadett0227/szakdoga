@@ -1,5 +1,9 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {canActivate, redirectLoggedInTo, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/']);
+const redirectLoggedInToChat = () => redirectLoggedInTo(['/chat']);
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,7 +33,9 @@ const routes: Routes = [
     path: 'list-programs',
     loadChildren: () => import('./list-programs/list-programs.module').then( m => m.ListProgramsPageModule)
   },
-  { path: 'login', loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)},
+  { path: 'login', loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+  ...canActivate(redirectLoggedInToChat)
+  },
   {
     path: 'registration',
     loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
@@ -59,13 +65,15 @@ const routes: Routes = [
     path: 'list-user',
     loadChildren: () => import('./list-user/list-user.module').then( m => m.ListUserPageModule)
   },
-
-
-
-
-
-
-
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {
+    path: 'item-forum/:id',
+    loadChildren: () => import('./item-forum/item-forum.module').then( m => m.ItemForumPageModule)
+  },
 
 ];
 

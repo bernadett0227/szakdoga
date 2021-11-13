@@ -20,6 +20,7 @@ export class NewsService {
       url: apt.url,
       leiras: apt.leiras,
       title: apt.title,
+      user: apt.user,
     })
   }
 

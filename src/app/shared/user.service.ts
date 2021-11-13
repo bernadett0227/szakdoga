@@ -52,7 +52,7 @@ export class UserService {
 
   // Delete
   deleteUser(id: string) {
-    this.userRef = this.db.object('/forum/' + id);
+    this.userRef = this.db.object('/user/' + id);
     this.userRef.remove();
   }
 }

@@ -35,7 +35,6 @@ export class EditProgramsPage implements OnInit {
       mobil: [''],
       napok_szama: [''],
     });
-    console.log(this.updateProgramsForm.value)
 
   }
 
@@ -57,7 +56,7 @@ export class EditProgramsPage implements OnInit {
   updateForm() {
     this.aptService.updateBooking(this.id, this.updateProgramsForm.value)
       .then(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/list-programs']);
       })
       .catch(error => console.log(error));
   }

@@ -1,26 +1,30 @@
-<ion-header class="bar-stable">
-  <ion-toolbar>
-    <ion-tab-button routerLinkActive="tab-selected" routerLink="/add-news"  tab="add-news">
-      <ion-icon name="add-circle"></ion-icon>
-      <ion-label>Új hír</ion-label>
-    </ion-tab-button>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Hírek</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
+  <ion-card>
+    <ion-tab-button class="newbutton" routerLinkActive="tab-selected" routerLink="/add-news"  tab="add-news">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>Új hír</ion-label>
+    </ion-tab-button>
   <ion-card *ngFor="let news of News" [href]="news.url" target="_blank">
     <ion-card-header>
-      <ion-card-subtitle>{{news.date}}</ion-card-subtitle>
       <ion-card-title>{{news.title}}</ion-card-title>
+      <ion-card-subtitle>{{news.url}}</ion-card-subtitle>
+      <ion-card-subtitle>{{news.date}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      {{news.desc}}
-      <ion-card-title><a href="{{news.url}}"></a></ion-card-title>
+      {{news.leiras}}
     </ion-card-content>
-    <ion-card-subtitle>{{news.user}}</ion-card-subtitle>
-
   </ion-card>
-
+  </ion-card>
 </ion-content>
 
 

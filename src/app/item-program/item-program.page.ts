@@ -3,9 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {OpinionService} from "../shared/opinion.service";
 import {ProgramsService} from "../shared/programs.service";
-import firebase from "firebase";
-import {Programs} from "../shared/Programs";
 import {Opinion} from "../shared/opinion";
+import firebase from "firebase";
 
 @Component({
   selector: 'app-item-program',
@@ -58,6 +57,7 @@ export class ItemProgramPage implements OnInit {
         this.email = res['email'];
         this.mobil = res['mobil'];
         this.napok_szama = res['napok_szama'];
+        console.log(this.napok_szama);
     });
 
     this.fetchOpinions();
@@ -100,11 +100,9 @@ export class ItemProgramPage implements OnInit {
     })
   }
 
-  getForum(id) {
+  getBooking(id) {
     console.log(id);
     this.aptService.getOpinion(id)
 
   }
 }
-
-

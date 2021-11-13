@@ -1,19 +1,37 @@
-<ion-header class="bar-stable">
-  <ion-toolbar>
-      <ion-label></ion-label>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+      <ion-title>Részletes programinfó</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-<h1>{{megnevezes}}</h1>
-  <h1>{{leiras}}</h1>
-  <h1>{{kezdo_datum}}</h1>
-  <h1>{{befejezo_datum}}</h1>
-  <h1>{{napok_szama}}</h1>
-  <h1>{{helyszin}}</h1>
-  <h1>{{mobil}}</h1>
-  <h1>{{email}}</h1>
+  <ion-card class="table">
+  <ion-col class="col1">
+    <ion-row class="row1">Program neve</ion-row>
+    <ion-row class="row1">Program leírása</ion-row>
+    <ion-row class="row1">Kezdő dátum</ion-row>
+    <ion-row class="row1">Befejező dátum </ion-row>
+    <ion-row class="row1">Napok száma </ion-row>
+    <ion-row class="row1">Helyszín </ion-row>
+    <ion-row class="row1">Mobil </ion-row>
+    <ion-row class="row1">Email </ion-row>
+  </ion-col>
 
+  <ion-col class="co2">
+    <ion-row class="row2">{{megnevezes}}</ion-row>
+    <ion-row class="row2">{{leiras}}</ion-row>
+    <ion-row class="row2">{{kezdo_datum}}</ion-row>
+    <ion-row class="row2">{{befejezo_datum}}</ion-row>
+    <ion-row class="row2">{{napok_szama}}</ion-row>
+    <ion-row class="row2">{{helyszin}}</ion-row>
+    <ion-row class="row2">{{mobil}}</ion-row>
+    <ion-row class="row2">{{email}}</ion-row>
+  </ion-col>
+  </ion-card>
   <h1>Vélemények:</h1>
 
   <ion-card *ngFor="let opinion of Opinion">
@@ -75,9 +93,9 @@
       <ion-label position="floating">Új vélemény</ion-label>
       <ion-textarea formControlName="opinion"  rows="10" style="border: 1px solid black"></ion-textarea>
     </ion-item>
-    <ion-item >
+    <ion-item>
       <ion-label  position="floating">Véleményed:</ion-label>
-      <ion-input formControlName="rate" [value]="rate"></ion-input>
+      <ion-input formControlName="rate" disabled [value]="rate"></ion-input>
     </ion-item>
 
     <div *ngIf="rate==0">

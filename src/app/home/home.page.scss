@@ -28,15 +28,33 @@
 
 .text h1 {
   text-align: center;
+  padding: 10px;
 }
 .text h4 {
+  padding: 10px;
   text-align: center;
 }
-.button {
+
+.signOut{
+  width: 80%;
   text-align: center;
-  width: 50%;
   display: flex;
   margin-top: 40px;
-  margin-left: 180px;
+  margin-left: 100px;
+}
+
+.login{
+  width: 80%;
+  text-align: center;
+  display: flex;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+.registration {
+  width: 80%;
+  text-align: center;
+  display: flex;
+  margin-top: 40px;
+  margin-left: 50px;
 }
 

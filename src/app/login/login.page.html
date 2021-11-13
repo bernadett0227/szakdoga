@@ -3,28 +3,39 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Sign in User</ion-title>
+    <ion-title>Felhasználói bejelentkezés</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="form">
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" #email required></ion-input>
+  <form [formGroup]="credentialForm">
+    <ion-item>
+      <ion-input
+        placeholder="Email cím"
+        formControlName="email"
+        autofocus="true"
+        clearInput="true"
+      ></ion-input>
     </ion-item>
+    <div *ngIf="(email.dirty || email.touched) && email.errors">
+      <span *ngIf="email.errors?.required">Kötelező megadni</span>
+      <span *ngIf="email.errors.minlength">Legalább 6 karakter legyen</span>
+    </div>
 
     <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" #password required></ion-input>
+      <ion-input
+        placeholder="Jelszó"
+        formControlName="password"
+        autofocus="true"
+        clearInput="true"
+        type="password"
+      ></ion-input>
     </ion-item>
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" (click)="logIn(email, password)" expand="block">Login</ion-button>
-      </ion-col>
-    </ion-row>
-
-
+    <div *ngIf="(password.dirty || password.touched) && password.errors">
+      <span *ngIf="password.errors?.required">Kötelező megadni</span>
+      <span *ngIf="password.errors.minlength">Legalább 6 karakter legyen</span>
+    </div>
   </form>
+  <ion-button type="submit" (click)="signUp()" expand="full">Üzenet regisztráció</ion-button>
+  <ion-button type="submit" (click)="signIn()" expand="full">Bejelentkezés</ion-button>
 </ion-content>

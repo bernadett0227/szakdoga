@@ -8,16 +8,13 @@
   <ion-list lines="full">
     <form [formGroup]="newsForm" (ngSubmit)="formSubmit()">
       <ion-item>
-        <ion-label position="floating">Cím</ion-label>
-        <ion-input formControlName="title" type="text" required></ion-input>
+        <ion-input placeholder="Főcím" formControlName="title" type="text" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Leírás</ion-label>
-        <ion-input formControlName="leiras" type="text" required></ion-input>
+        <ion-input placeholder="Leírás" formControlName="leiras" type="text" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Url</ion-label>
-        <ion-input formControlName="url" type="text" required></ion-input>
+        <ion-input placeholder="Webcím" formControlName="url" type="text" required></ion-input>
       </ion-item>
       <ion-row>
         <ion-col>
