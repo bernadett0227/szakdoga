@@ -19,6 +19,7 @@ export class AppComponent {
     { title: 'Hírek', url: '/news', icon: 'newspaper' },
     { title: 'Rólam', url: '/about', icon: 'flower' },
   ];
+  selectedIndex: number;
 
   constructor(
     private platform: Platform,

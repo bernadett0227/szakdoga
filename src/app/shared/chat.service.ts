@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
-import firebase from "firebase";
 import {AngularFireAuth} from "@angular/fire/auth";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
 import {map, switchMap} from "rxjs/operators";
+import firebase from "firebase";
 
 export interface User {
   uid: string;
@@ -11,7 +11,7 @@ export interface User {
 }
 
 export interface Message {
-  createdAt: firebase.firestore.FieldValue;
+  createdAt: any;
   id: string;
   from: string;
   msg: string;

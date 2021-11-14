@@ -93,9 +93,9 @@
       <ion-label position="floating">Új vélemény</ion-label>
       <ion-textarea formControlName="opinion"  rows="10" style="border: 1px solid black"></ion-textarea>
     </ion-item>
-    <ion-item>
+    <ion-item hidden>
       <ion-label  position="floating">Véleményed:</ion-label>
-      <ion-input formControlName="rate" disabled [value]="rate"></ion-input>
+      <ion-input formControlName="rate"  [value]="rate"></ion-input>
     </ion-item>
 
     <div *ngIf="rate==0">
