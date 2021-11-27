@@ -9,25 +9,15 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card class="table">
-    <ion-col class="col1">
-      <ion-row class="row1">Fórum neve</ion-row>
-      <ion-row class="row1">Fórum leírása</ion-row>
-      <ion-row class="row1">Email</ion-row>
-      <ion-row class="row1">Dátum </ion-row>
-    </ion-col>
-
-    <ion-col class="co2">
-      <ion-row class="row2">{{forumTitle}}</ion-row>
-      <ion-row class="row2">{{forumDesc}}</ion-row>
-      <ion-row class="row2">{{forumUsername}}</ion-row>
-      <ion-row class="row2">{{forumDate}}</ion-row>
-    </ion-col>
-  </ion-card>
+  <h1 class="title">{{forumTitle}}</h1>
+  <div class="desc">Fórum leírása</div>
+  <h3 class="leiras"> <ion-icon class="icon" name="create"></ion-icon>{{forumDesc}}</h3>
+  <h4> <ion-icon class="icon" name="calendar"></ion-icon>{{forumDate}}</h4>
+  <h4> <ion-icon  class="icon" name="mail-open"></ion-icon>{{forumUsername}}</h4>
   <h1>Hozzászólások:</h1>
 
-  <ion-card *ngFor="let comment of Comment">
-    <ion-card *ngIf="comment.id === id">
+  <ion-card class="card" *ngFor="let comment of Comment">
+    <ion-card class="card1" *ngIf="comment.id === id">
 
       <ion-card-title>{{comment.comment}}</ion-card-title>
 
@@ -40,8 +30,7 @@
 
   <form [formGroup]="commentForm" (ngSubmit)="formSubmit()">
     <ion-item class="comment">
-      <ion-label position="floating">Új Hozzászólás</ion-label>
-      <ion-textarea formControlName="comment"  rows="10" style="border: 1px solid black; border-radius: 10px"></ion-textarea>
+      <ion-textarea placeholder="Hozzászólásodat ide tudod írni..." formControlName="comment"  rows="10" class="textarea"></ion-textarea>
     </ion-item>
     <ion-row>
       <ion-col>

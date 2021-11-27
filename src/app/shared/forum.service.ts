@@ -18,6 +18,7 @@ export class ForumService {
     return this.forumListRef.push({
       date: apt.date,
       desc: apt.desc,
+      title: apt.title,
       username: apt.username,
     })
   }

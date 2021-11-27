@@ -20,10 +20,10 @@ export class AddForumsPage implements OnInit {
   ngOnInit() {
     let user = firebase.auth().currentUser;
     let date = new Date().toLocaleDateString();
-    console.log(date);
     this.forumForm = this.fb.group({
       date: [date],
       desc: [''],
+      title: [''],
       username: [user.email],
     });
   }

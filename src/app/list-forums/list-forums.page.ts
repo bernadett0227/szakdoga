@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Forum} from "../shared/forum";
 import {ForumService} from "../shared/forum.service";
+import {AuthenticationService} from "../shared/authentication-service";
 
 @Component({
   selector: 'app-list-forums',
@@ -11,7 +12,7 @@ export class ListForumsPage implements OnInit {
 
   Forums = [];
 
-  constructor(private aptService: ForumService) {
+  constructor(private aptService: ForumService, public authService: AuthenticationService) {
   }
 
   ngOnInit() {

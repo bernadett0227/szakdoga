@@ -3,6 +3,7 @@ import {ForumService} from "../shared/forum.service";
 import {Forum} from "../shared/forum";
 import {NewsService} from "../shared/news.service";
 import {News} from "../shared/news";
+import {AuthenticationService} from "../shared/authentication-service";
 
 @Component({
   selector: 'app-news',
@@ -13,7 +14,7 @@ export class NewsPage implements OnInit {
 
   News = [];
 
-  constructor(private aptService: NewsService) {
+  constructor(private aptService: NewsService, public authService: AuthenticationService) {
   }
 
   ngOnInit() {

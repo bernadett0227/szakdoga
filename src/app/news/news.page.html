@@ -9,12 +9,12 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card>
-    <ion-tab-button class="newbutton" routerLinkActive="tab-selected" routerLink="/add-news"  tab="add-news">
+  <ion-card class="card">
+    <ion-tab-button *ngIf="authService.isLoggedIn" class="newbutton" routerLinkActive="tab-selected" routerLink="/add-news"  tab="add-news">
       <ion-icon name="add-circle"></ion-icon>
       <ion-label>Új hír</ion-label>
     </ion-tab-button>
-  <ion-card *ngFor="let news of News" [href]="news.url" target="_blank">
+  <ion-card class="card1" *ngFor="let news of News" [href]="news.url" target="_blank">
     <ion-card-header>
       <ion-card-title>{{news.title}}</ion-card-title>
       <ion-card-subtitle>{{news.url}}</ion-card-subtitle>

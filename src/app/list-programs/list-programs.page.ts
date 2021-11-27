@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProgramsService} from "../shared/programs.service";
 import {Programs} from "../shared/Programs"
+import {AuthenticationService} from "../shared/authentication-service";
 
 
 
@@ -15,7 +16,7 @@ export class ListProgramsPage implements OnInit {
   search: string;
 
 
-  constructor(private aptService: ProgramsService) { }
+  constructor(private aptService: ProgramsService, public authService: AuthenticationService) { }
 
   ngOnInit() {
     this.fetchBookings();
@@ -38,7 +39,7 @@ export class ListProgramsPage implements OnInit {
 
   deleteBooking(id) {
     console.log(id);
-    if (window.confirm('Do you really want to delete?')) {
+    if (window.confirm('Biztos törölni akarod?')) {
       this.aptService.deleteBooking(id)
 
     }

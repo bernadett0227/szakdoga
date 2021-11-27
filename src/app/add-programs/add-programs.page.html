@@ -30,10 +30,6 @@
         <ion-input formControlName="helyszin" type="text" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input formControlName="email" type="email" required></ion-input>
-      </ion-item>
-      <ion-item>
         <ion-label position="floating">Telefonszám</ion-label>
         <ion-input formControlName="mobil" type="tel" required></ion-input>
       </ion-item>
@@ -45,6 +41,9 @@
       <ion-row>
         <ion-col>
           <ion-button type="submit" color="primary" shape="full" expand="block">Hozzáadás</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button routerLink="/list-programs" type="submit" color="primary" shape="full" expand="block">Mégse</ion-button>
         </ion-col>
       </ion-row>
     </form>

@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
 
     this.chatService.signUp(this.credentialForm.value).then(user => {
       loading.dismiss();
-      this.router.navigateByUrl('/chat', { replaceUrl: true});
+      this.router.navigateByUrl('/home', { replaceUrl: true});
     }, async err => {
       loading.dismiss();
       const alert = await this.alertController.create({
@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
 
     this.chatService.signIn(this.credentialForm.value).then(user => {
       loading.dismiss();
-      this.router.navigateByUrl('/chat', { replaceUrl: true});
+      this.router.navigateByUrl('/home', { replaceUrl: true});
     }, async err => {
       loading.dismiss();
       const alert = await this.alertController.create({

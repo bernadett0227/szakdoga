@@ -21,7 +21,7 @@
       <ion-card-subtitle>  {{booking.email}}</ion-card-subtitle>
       <ion-card-title>  {{booking.megnevezes}}</ion-card-title>
     </ion-card-header>
-    <div class="item-note" item-end>
+    <div class="item-note" item-end *ngIf="authService.isLoggedIn">
       <button ion-button clear [routerLink]="['/edit-programs/', booking.$key]">
         <ion-icon name="create" style="zoom:2.0"></ion-icon>
       </button>

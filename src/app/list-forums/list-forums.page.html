@@ -11,17 +11,18 @@
 
 
 <ion-content fullscreen>
-  <ion-card>
-    <ion-tab-button class="newbutton" routerLinkActive="tab-selected" routerLink="/add-forums"  tab="add-forums">
+  <ion-card class="card">
+    <ion-tab-button *ngIf="authService.isLoggedIn" class="newbutton" routerLinkActive="tab-selected" routerLink="/add-forums"  tab="add-forums">
       <ion-icon name="add-circle"></ion-icon>
       <ion-label>Új fórum</ion-label>
     </ion-tab-button>
-  <ion-card *ngFor="let forum of Forums" [routerLink]="['/item-forum/', forum.$key]">
+  <ion-card  class="card1" *ngFor="let forum of Forums">
     <ion-card-header>
+      <ion-card-subtitle>{{forum.username}}</ion-card-subtitle>
       <ion-card-subtitle>{{forum.date}}</ion-card-subtitle>
       <ion-card-title>{{forum.title}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content *ngIf="authService.isLoggedIn" [routerLink]="['/item-forum/', forum.$key]">
       {{forum.desc}}
     </ion-card-content>
 

@@ -9,30 +9,20 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card class="table">
-  <ion-col class="col1">
-    <ion-row class="row1">Program neve</ion-row>
-    <ion-row class="row1">Program leírása</ion-row>
-    <ion-row class="row1">Kezdő dátum</ion-row>
-    <ion-row class="row1">Befejező dátum </ion-row>
-    <ion-row class="row1">Napok száma </ion-row>
-    <ion-row class="row1">Helyszín </ion-row>
-    <ion-row class="row1">Mobil </ion-row>
-    <ion-row class="row1">Email </ion-row>
-  </ion-col>
 
-  <ion-col class="co2">
-    <ion-row class="row2">{{megnevezes}}</ion-row>
-    <ion-row class="row2">{{leiras}}</ion-row>
-    <ion-row class="row2">{{kezdo_datum}}</ion-row>
-    <ion-row class="row2">{{befejezo_datum}}</ion-row>
-    <ion-row class="row2">{{napok_szama}}</ion-row>
-    <ion-row class="row2">{{helyszin}}</ion-row>
-    <ion-row class="row2">{{mobil}}</ion-row>
-    <ion-row class="row2">{{email}}</ion-row>
-  </ion-col>
-  </ion-card>
-  <h1>Vélemények:</h1>
+  <h1 class="title">{{megnevezes}}</h1>
+  <div class="desc">Program leírása</div>
+  <h3 class="leiras"> <ion-icon class="icon" name="create"></ion-icon>{{leiras}}</h3>
+  <h4> <ion-icon class="icon" name="calendar"></ion-icon>{{kezdo_datum}}</h4>
+  <h4> <ion-icon  class="icon" name="calendar"></ion-icon>{{befejezo_datum}}</h4>
+  <h4> <ion-icon  class="icon" name="sunny"></ion-icon>{{napok_szama}}</h4>
+  <h4> <ion-icon  class="icon" name="pin"></ion-icon>{{helyszin}}</h4>
+  <h4> <ion-icon  class="icon" name="call"></ion-icon>{{mobil}}</h4>
+  <h4> <ion-icon  class="icon" name="mail-open"></ion-icon>{{email}}</h4>
+
+
+
+  <h1 class="border_top">Vélemények:</h1>
 
   <ion-card *ngFor="let opinion of Opinion">
     <ion-card *ngIf="opinion.id === id">
@@ -90,56 +80,55 @@
 
   <form [formGroup]="opinionForm" (ngSubmit)="formSubmit()">
     <ion-item>
-      <ion-label position="floating">Új vélemény</ion-label>
-      <ion-textarea formControlName="opinion"  rows="10" style="border: 1px solid black"></ion-textarea>
+      <ion-textarea formControlName="opinion" placeholder="Véleményedet ide tudod írni..."  rows="10" class="textarea"></ion-textarea>
     </ion-item>
     <ion-item hidden>
       <ion-label  position="floating">Véleményed:</ion-label>
       <ion-input formControlName="rate"  [value]="rate"></ion-input>
     </ion-item>
 
-    <div *ngIf="rate==0">
-      <ion-icon color="primary" name="star-outline" (click)="onRate(1)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(2)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(3)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
+    <div *ngIf="rate==0" style="margin: 20px">
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(1)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(2)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(3)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
     </div>
     <div *ngIf="rate==1">
-      <ion-icon color="primary" name="star" (click)="onRate(1)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(2)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(3)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(1)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(2)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(3)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
     </div>
     <div *ngIf="rate==2">
-      <ion-icon color="primary" name="star" (click)="onRate(1)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(2)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(3)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(1)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(2)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(3)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
     </div>
 
     <div *ngIf="rate==3">
-      <ion-icon color="primary" name="star" (click)="onRate(1)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(2)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(3)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(1)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(2)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(3)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(4)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
     </div>
     <div *ngIf="rate==4">
-      <ion-icon color="primary" name="star" (click)="onRate(1)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(2)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(3)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(4)"></ion-icon>
-      <ion-icon color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(1)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(2)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(3)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(4)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star-outline" (click)="onRate(5)"></ion-icon>
     </div>
     <div *ngIf="rate==5">
-      <ion-icon color="primary" name="star" (click)="onRate(1)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(2)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(3)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(4)"></ion-icon>
-      <ion-icon color="primary" name="star" (click)="onRate(5)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(1)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(2)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(3)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(4)"></ion-icon>
+      <ion-icon class="rate" color="primary" name="star" (click)="onRate(5)"></ion-icon>
     </div>
     <ion-row>
       <ion-col>
