@@ -39,7 +39,6 @@ export class AddProgramsPage implements OnInit {
       return false;
     } else {
       this.aptService.createBooking(this.programsForm.value).then(res => {
-        console.log(res);
         this.programsForm.reset();
         this.router.navigate(['/list-programs']);
       })

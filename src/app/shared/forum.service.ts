@@ -14,7 +14,6 @@ export class ForumService {
 
   // Create
   createForum(apt: Forum) {
-    console.log(this.forumListRef);
     return this.forumListRef.push({
       date: apt.date,
       desc: apt.desc,

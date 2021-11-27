@@ -31,7 +31,6 @@ export class ChatService{
   constructor(private af: AngularFireAuth, private afs: AngularFirestore ){
 
     this.af.onAuthStateChanged(user => {
-      console.log('Changed: ', user);
       this.currentUser = user;
     })
 
@@ -39,7 +38,6 @@ export class ChatService{
 
   async signUp({email, password}) {
     const credential = await this.af.signInWithEmailAndPassword(email, password);
-    console.log('result: ', credential);
     const uid = credential.user.uid;
 
     return this.afs.doc(
@@ -85,7 +83,6 @@ export class ChatService{
     return this.getUser().pipe(
       switchMap(res => {
         users = res;
-        console.log('all users: ', users);
         return this.afs.collection('messages', ref => ref.orderBy('createdAt')).valueChanges({ idField: 'id'}) as Observable<Message[]>
       }),
       map(messages => {
@@ -93,7 +90,6 @@ export class ChatService{
           m.fromName = this.getUserForMsg(m.from, users);
           m.myMsg = this.currentUser.uid === m.from;
         }
-        console.log('all messages: ', messages);
         return messages;
       })
     )

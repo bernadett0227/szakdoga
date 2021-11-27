@@ -16,7 +16,6 @@ export class CommentService {
   // Create
   createComment(apt: Comment) {
     let user = firebase.auth().currentUser;
-    console.log(this.commentListRef);
     return this.commentListRef.push({
       comment: apt.comment,
       user: user.email,

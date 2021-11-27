@@ -14,7 +14,6 @@ export class NewsService {
 
   // Create
   createNews(apt: News) {
-    console.log(this.newsListRef);
     return this.newsListRef.push({
       date: apt.date,
       url: apt.url,

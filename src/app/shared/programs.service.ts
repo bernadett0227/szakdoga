@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
+import {Injectable} from '@angular/core';
+import {AngularFireDatabase, AngularFireList, AngularFireObject} from '@angular/fire/database';
 import {Programs} from "./Programs";
 import firebase from "firebase";
-import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,6 @@ export class ProgramsService {
   // Create
   createBooking(apt: Programs) {
     let user = firebase.auth().currentUser;
-    console.log(this.bookingListRef);
     return this.bookingListRef.push({
       megnevezes: apt.megnevezes,
       leiras: apt.leiras,

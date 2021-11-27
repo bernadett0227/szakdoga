@@ -32,9 +32,7 @@ export class AddForumsPage implements OnInit {
     if (!this.forumForm.valid) {
       return false;
     } else {
-      console.log(this.aptService);
       this.aptService.createForum(this.forumForm.value).then(res => {
-        console.log(res);
         this.forumForm.reset();
         this.router.navigate(['/list-forums']);
       })

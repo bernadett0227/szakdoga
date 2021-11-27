@@ -15,7 +15,6 @@ export class ListUserPage implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchUsers();
     let userRes = this.aptService.getUserList();
     userRes.snapshotChanges().subscribe(res => {
       this.Users = [];
@@ -27,16 +26,8 @@ export class ListUserPage implements OnInit {
     })
   }
 
-  fetchUsers() {
-    this.aptService.getUserList().valueChanges().subscribe(res => {
-      console.log(res)
-    })
-  }
-
   getUser(id) {
-    console.log(id);
     this.aptService.getUser(id)
-
   }
 
 

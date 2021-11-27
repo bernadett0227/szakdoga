@@ -19,7 +19,6 @@ export class AddNewsPage implements OnInit {
   ngOnInit() {
     let user = firebase.auth().currentUser;
     let date = new Date().toLocaleDateString();
-    console.log(date);
     this.newsForm = this.fb.group({
       date: [date],
       title: [''],
@@ -33,9 +32,7 @@ export class AddNewsPage implements OnInit {
     if (!this.newsForm.valid) {
       return false;
     } else {
-      console.log(this.aptService);
       this.aptService.createNews(this.newsForm.value).then(res => {
-        console.log(res);
         this.newsForm.reset();
         this.router.navigate(['/news']);
       })

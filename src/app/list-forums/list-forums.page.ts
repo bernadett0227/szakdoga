@@ -16,7 +16,6 @@ export class ListForumsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchForums();
     let forumRes = this.aptService.getForumList();
     forumRes.snapshotChanges().subscribe(res => {
       this.Forums = [];
@@ -28,14 +27,7 @@ export class ListForumsPage implements OnInit {
     })
   }
 
-  fetchForums() {
-    this.aptService.getForumList().valueChanges().subscribe(res => {
-      console.log(res)
-    })
-  }
-
   getForum(id) {
-    console.log(id);
       this.aptService.getForum(id)
 
   }

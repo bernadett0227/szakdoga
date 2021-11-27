@@ -51,7 +51,6 @@ export class ItemForumPage implements OnInit {
       this.forumUsername = res['username'];
     });
 
-    this.fetchComment();
     let commentRes = this.aptService.getCommentList();
     commentRes.snapshotChanges().subscribe(res => {
       this.Comment = [];
@@ -71,25 +70,16 @@ export class ItemForumPage implements OnInit {
     if (!this.commentForm.valid) {
       return false;
     } else {
-      console.log(this.commentForm.value);
       this.aptService.createComment(this.commentForm.value).then(res => {
-        console.log(res);
         this.commentForm.reset();
         this.router.navigate(['/list-forums']);
       })
         .catch(error => console.log(error));
     }
   }
-  fetchComment() {
-    this.aptService.getCommentList().valueChanges().subscribe(res => {
-      console.log(res)
-    })
-  }
 
   getForum(id) {
-    console.log(id);
     this.aptService.getComment(id)
-
   }
 
 }

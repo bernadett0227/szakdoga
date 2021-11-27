@@ -19,7 +19,6 @@ export class ListProgramsPage implements OnInit {
   constructor(private aptService: ProgramsService, public authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.fetchBookings();
     let bookingRes = this.aptService.getBookingList();
     bookingRes.snapshotChanges().subscribe(res => {
       this.Bookings = [];
@@ -28,12 +27,6 @@ export class ListProgramsPage implements OnInit {
         a['$key'] = item.key;
         this.Bookings.push(a as Programs);
       })
-    })
-  }
-
-  fetchBookings() {
-    this.aptService.getBookingList().valueChanges().subscribe(res => {
-      console.log(res)
     })
   }
 

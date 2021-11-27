@@ -18,10 +18,6 @@ const routes: Routes = [
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
   },
   {
-    path: 'reviews',
-    loadChildren: () => import('./reviews/reviews.module').then( m => m.ReviewsPageModule)
-  },
-  {
     path: 'edit-programs/:id',
     loadChildren: () => import('./edit-programs/edit-programs.module').then( m => m.EditProgramsPageModule)
   },
@@ -41,10 +37,6 @@ const routes: Routes = [
     loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
   },
 
-  {
-    path: 'forgot-password',
-    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
-  },
   {
     path: 'add-forums',
     loadChildren: () => import('./add-forums/add-forums.module').then( m => m.AddForumsPageModule)

@@ -38,7 +38,6 @@ export class ItemProgramPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.rate);
     let rate = this.onRate(this.rate);
     let user = firebase.auth().currentUser;
     this.opinionForm = this.fb.group({
@@ -47,7 +46,6 @@ export class ItemProgramPage implements OnInit {
       user: [user.email],
       id: [this.id],
     });
-    console.log(this.onRate(this.rate));
     this.apt.getBooking(this.id).valueChanges().subscribe(res => {
       this.megnevezes = res['megnevezes'];
         this.leiras =  res['leiras'];
@@ -57,10 +55,8 @@ export class ItemProgramPage implements OnInit {
         this.email = res['email'];
         this.mobil = res['mobil'];
         this.napok_szama = res['napok_szama'];
-        console.log(this.napok_szama);
     });
 
-    this.fetchOpinions();
     let opinionsRes = this.aptService.getOpinionList();
     opinionsRes.snapshotChanges().subscribe(res => {
       this.Opinion = [];
@@ -74,7 +70,6 @@ export class ItemProgramPage implements OnInit {
 
   rate=0;
   onRate(rate): number {
-    console.log(rate);
     this.rate = rate;
     return this.rate;
   }
@@ -85,23 +80,15 @@ export class ItemProgramPage implements OnInit {
     if (!this.opinionForm.valid) {
       return false;
     } else {
-      console.log(this.opinionForm.value);
       this.aptService.createOpinion(this.opinionForm.value).then(res => {
-        console.log(res);
         this.opinionForm.reset();
         this.router.navigate(['/list-programs']);
       })
         .catch(error => console.log(error));
     }
   }
-  fetchOpinions() {
-    this.aptService.getOpinionList().valueChanges().subscribe(res => {
-      console.log(res)
-    })
-  }
 
   getBooking(id) {
-    console.log(id);
     this.aptService.getOpinion(id)
 
   }

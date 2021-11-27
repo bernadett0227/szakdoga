@@ -16,7 +16,6 @@ export class OpinionService {
   // Create
   createOpinion(apt: Opinion) {
     let user = firebase.auth().currentUser;
-    console.log(this.opinionListRef);
     return this.opinionListRef.push({
       opinion: apt.opinion,
       user: user.email,

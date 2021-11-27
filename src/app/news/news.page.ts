@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ForumService} from "../shared/forum.service";
-import {Forum} from "../shared/forum";
+import {Component, OnInit} from '@angular/core';
 import {NewsService} from "../shared/news.service";
 import {News} from "../shared/news";
 import {AuthenticationService} from "../shared/authentication-service";
@@ -18,7 +16,6 @@ export class NewsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchNews();
     let newsRes = this.aptService.getNewsList();
     newsRes.snapshotChanges().subscribe(res => {
       this.News = [];
@@ -30,15 +27,7 @@ export class NewsPage implements OnInit {
     })
   }
 
-  fetchNews() {
-    this.aptService.getNewsList().valueChanges().subscribe(res => {
-      console.log(res)
-    })
-  }
-
   getNews(id) {
-    console.log(id);
     this.aptService.getNews(id)
-
   }
 }

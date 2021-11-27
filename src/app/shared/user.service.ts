@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
-import {Forum} from "./forum";
+import {Injectable} from '@angular/core';
+import {AngularFireDatabase, AngularFireList, AngularFireObject} from '@angular/fire/database';
 import {Users} from "./Users";
 
 @Injectable({
@@ -15,14 +14,12 @@ export class UserService {
 
   // Create
   createUser(apt: Users) {
-    console.log(this.userListRef);
     return this.userListRef.push({
       firstname: apt.firstname,
       lastname: apt.lastname,
       birthdate: apt.birthdate,
       gender: apt.gender,
       email: apt.email,
-      password: apt.password,
     })
   }
 
@@ -46,7 +43,6 @@ export class UserService {
       birthdate: apt.birthdate,
       gender: apt.gender,
       email: apt.email,
-      password: apt.password,
     })
   }
 

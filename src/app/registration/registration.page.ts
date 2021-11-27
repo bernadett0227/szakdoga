@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import { AuthenticationService } from "../shared/authentication-service";
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import {AuthenticationService} from "../shared/authentication-service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../shared/user.service";
 
@@ -17,7 +17,6 @@ export class RegistrationPage implements OnInit {
     public aptService: UserService,
     public router: Router,
     public fb: FormBuilder,
-    public actRoute: ActivatedRoute
   ) {
   }
 
@@ -31,7 +30,6 @@ export class RegistrationPage implements OnInit {
       birthdate: [''],
       gender: [''],
       email: [''],
-      password: [''],
     });
   }
 
