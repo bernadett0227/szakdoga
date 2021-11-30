@@ -12,7 +12,7 @@
   <ion-searchbar [(ngModel)]="search"></ion-searchbar>
 
 <ion-card class="card">
-  <ion-tab-button class="newbutton" routerLinkActive="tab-selected" routerLink="/add-programs"  tab="add-programs">
+  <ion-tab-button *ngIf="authService.isLoggedIn" class="newbutton" routerLinkActive="tab-selected" routerLink="/add-programs"  tab="add-programs">
     <ion-icon name="add-circle"></ion-icon>
     <ion-label>Új program</ion-label>
   </ion-tab-button>

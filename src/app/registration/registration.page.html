@@ -1,51 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Regisztráció</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen="true">
+<div class="wrapper">
+        <form [formGroup]="userForm" (ngSubmit)="formSubmit()" class="login">
+          <p class="title">Regisztráció</p>
+            <ion-input formControlName="email" type="email"   name="email" placeholder="Email" #email required></ion-input>
+          <i class="fa fa-user"></i>
+            <ion-input type="password" name="password" placeholder="Jelszó" #password required></ion-input>
+          <i class="fa fa-key"></i>
+            <ion-input type="date" name="date" placeholder="Születési dátum" required></ion-input>
+          <i class="fa fa-key"></i>
+            <ion-input type="text" name="name" placeholder="Keresztnév"></ion-input>
+          <i class="fa fa-key"></i>
+            <ion-input type="text" name="name" placeholder="Vezetéknév"  required></ion-input>
+          <i class="fa fa-key"></i>
+            <ion-select formControlName="gender">
+              <ion-select-option>Nő</ion-select-option>
+              <ion-select-option>Férfi</ion-select-option>
+            </ion-select>
+          <ion-button type="submit" (click)="signUp(email, password)">
+            <i class="spinner"></i>
+            <span  class="state">Regisztráció</span>
+          </ion-button>
+          <ion-button routerLink="/home">
+            <i class="spinner"></i>
+            <span  class="state">Mégse</span>
+          </ion-button>
+        </form>
 
-<ion-content class="form">
-  <form [formGroup]="userForm" (ngSubmit)="formSubmit()">
-    <ion-item lines="full">
-      <ion-label position="floating">Vezetéknév</ion-label>
-      <ion-input formControlName="lastname" type="text"  required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Keresztnév</ion-label>
-      <ion-input formControlName="firstname" type="text"  required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email" type="text" #email required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Születési dátum</ion-label>
-      <ion-input formControlName="birthdate" type="date" required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Nem</ion-label>
-      <ion-select formControlName="gender">
-        <ion-select-option>Nő</ion-select-option>
-        <ion-select-option>Férfi</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input  type="password" #password required></ion-input>
-    </ion-item>
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" (click)="signUp(email, password)" expand="block">Register</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+</div>
 </ion-content>

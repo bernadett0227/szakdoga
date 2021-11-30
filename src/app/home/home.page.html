@@ -7,6 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <div class="home">
   <ion-text class="text">
   <h1>Köszöntelek az oldalamon.</h1>
   <h4>Ez az oldal szakdolgozat projekt céljából jött létre. Ha többet szeretnél megtudni rólam akkor <a routerLink="/about">katt ide</a>
@@ -14,9 +15,17 @@
     Kérlek ahhoz hogy minden funkciót jól tudj használni lépj be az oldalamra vagy regisztrálj. Köszönöm
   </h4>
   </ion-text>
-  <div class="button">
-    <ion-button class="login" type="submit" *ngIf="!authService.isLoggedIn" routerLink="/login" expand="block">Bejelentkezés</ion-button>
-    <ion-button class="signOut" type="submit" *ngIf="authService.isLoggedIn" (click)="authService.SignOut()" >Kijelentkezés</ion-button>
-    <ion-button class="registration" type="submit" *ngIf="!authService.isLoggedIn" routerLink="/registration" expand="block">Regisztráció</ion-button>
+
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" *ngIf="!authService.isLoggedIn" routerLink="/login" expand="block">Bejelentkezés</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button  type="submit" *ngIf="!authService.isLoggedIn" routerLink="/registration" expand="block">Regisztráció</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button  type="submit" *ngIf="authService.isLoggedIn" (click)="authService.SignOut()" >Kijelentkezés</ion-button>
+    </ion-col>
+  </ion-row>
   </div>
 </ion-content>

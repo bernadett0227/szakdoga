@@ -33,10 +33,12 @@
 .text h4 {
   padding: 10px;
   text-align: center;
+  font-family: "Times New Roman", serif ;
+  color: #5d58e0;
 }
 
 .signOut{
-  width: 70%;
+  width: 50%;
   text-align: center;
   display: flex;
   margin-top: 40px;
@@ -44,17 +46,22 @@
 }
 
 .login{
-  width: 80%;
+  width: 50%;
   text-align: center;
   display: flex;
   margin-top: 40px;
-  margin-left: 50px;
+  margin-left: 1vh;
 }
 .registration {
-  width: 80%;
+  width: 50%;
   text-align: center;
   display: flex;
   margin-top: 40px;
-  margin-left: 50px;
+  margin-left: 80vh;
+  padding: 10px;
+}
+.home {
+  width: 70%;
+  margin-left: 10vh;
 }
 
